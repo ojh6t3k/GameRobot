@@ -153,21 +153,22 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141760992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: .975519538, z: -3.66922903}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1261209369
+--- !u!1 &899019172
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1261209372}
-  - 114: {fileID: 1261209371}
-  - 114: {fileID: 1261209370}
+  - 4: {fileID: 899019175}
+  - 114: {fileID: 899019173}
+  - 114: {fileID: 899019174}
+  - 114: {fileID: 899019176}
   m_Layer: 0
   m_Name: UnityRobot
   m_TagString: Untagged
@@ -175,12 +176,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1261209370
+--- !u!114 &899019173
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1261209369}
+  m_GameObject: {fileID: 899019172}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14a9b145b6dd41248b7e491249daf35b, type: 3}
@@ -190,28 +191,85 @@ MonoBehaviour:
   portName: 
   baudrate: 57600
   timeoutSec: 5
-  modules: []
---- !u!114 &1261209371
+  modules:
+  - {fileID: 1792611082}
+--- !u!114 &899019174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1261209369}
+  m_GameObject: {fileID: 899019172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fbcf28aeda0f98479bc42f35031eec7, type: 3}
+  m_Script: {fileID: 11500000, guid: ef155b203379fba4980b4f99db41d899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robot: {fileID: 1261209370}
---- !u!4 &1261209372
+  robot: {fileID: 899019173}
+  midi: {fileID: 899019176}
+--- !u!4 &899019175
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1261209369}
+  m_GameObject: {fileID: 899019172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1792611081}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!114 &899019176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899019172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a93bed531c40184cbea79b9353e4fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midi: {fileID: 4900000, guid: de8019e53f530ba46b89a9554747875a, type: 3}
+  tone: {fileID: 1792611082}
+  tracks: []
+--- !u!1 &1792611080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1792611081}
+  - 114: {fileID: 1792611082}
+  m_Layer: 0
+  m_Name: Tone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792611081
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792611080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 899019175}
+  m_RootOrder: 0
+--- !u!114 &1792611082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792611080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7b39be56fdc1044be6e9ddf1727610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0

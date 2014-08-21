@@ -10,6 +10,7 @@ namespace UnityRobot
 {
 	public class RobotProxy : MonoBehaviour
 	{
+		[HideInInspector]
 		public List<string> portNames = new List<string>();
 		public string portName;
 
@@ -168,10 +169,13 @@ namespace UnityRobot
 										for(int j=0; j<_rxDataBytes.Count; j++)
 										{
 											if(bit == 1)
+											{
 												_rxDataBytes[j] = (byte)(_rxDataBytes[j] << bit);
+												bit++;
+											}
 											else if(bit == 8)
 											{
-												_rxDataBytes[j -1] |= _rxDataBytes[j];
+												_rxDataBytes[j - 1] |= _rxDataBytes[j];
 												_rxDataBytes.RemoveAt(j);
 												j--;
 												bit = 1;
@@ -183,10 +187,9 @@ namespace UnityRobot
 													_rxDataBytes.RemoveAt(j);
 												else
 													_rxDataBytes[j] = (byte)(_rxDataBytes[j] << bit);
+												bit++;
 											}
-											bit++;
 										}
-
 										foreach(ModuleProxy module in modules)
 										{
 											if(module.id == _id)
@@ -242,8 +245,8 @@ namespace UnityRobot
 											temp = (byte)(dataBytes[i] << (7 - bit));
 											if(i == (dataBytes.Length - 1))
 												data7bitBytes.Add((byte)(temp & 0x7F));
+											bit++;
 										}
-										bit++;
 									}
 
 									writeBytes.Add((byte)data7bitBytes.Count); // num bytes
