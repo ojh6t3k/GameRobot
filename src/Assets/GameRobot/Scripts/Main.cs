@@ -21,6 +21,7 @@ public class Main : MonoBehaviour
 	bool IsConnect_Robot = false;
 
 	public GameObject _goBtnConnect;
+	public GameObject _goConnectingDeco;
 
 	public GameObject _goUI_ConnectPnl;
 
@@ -42,6 +43,7 @@ public class Main : MonoBehaviour
 		_RobotProxy.PortSearch();
 
 		ShowConnectUI(true);
+		_goConnectingDeco.SetActive(false);
 	}
 
 
@@ -59,6 +61,8 @@ public class Main : MonoBehaviour
 		_RobotProxy.portName = _UIPortList.value;
 		_RobotProxy.Connect();
 		//_UILblRobotMessage.text = "연결 시도중..."; // NGUI
+
+		_goConnectingDeco.SetActive(true);
 		_goBtnConnect.SetActive(false);	// NGUI
 	}
 
@@ -124,6 +128,7 @@ public class Main : MonoBehaviour
 		IsConnect_Robot = false;
 		Debug.Log("연결 실패");
 //		_UILblRobotMessage.text = "연결 실패"; // NGUI
+		_goConnectingDeco.SetActive(false);
 		_goBtnConnect.SetActive(true);		// NGUI
 //		CheckStartButton(); // NGUI
 	}
