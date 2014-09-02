@@ -1885,7 +1885,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 9ba9feaceba790f43badeeb876acbd53, type: 2}
-  mSpriteName: LCD_Num_Null
+  mSpriteName: LCD_Num_0
   mFillCenter: 1
 --- !u!114 &11400010
 MonoBehaviour:

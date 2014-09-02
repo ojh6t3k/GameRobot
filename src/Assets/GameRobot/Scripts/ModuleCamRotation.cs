@@ -16,7 +16,7 @@ public class ModuleCamRotation : MonoBehaviour
 	// Update ---------------------------------
 	void Update () 
 	{
-		_goCamDirection.transform.localEulerAngles = new Vector3(0f, 0f, _fAngle * _fX);
+		_goCamDirection.transform.localEulerAngles = new Vector3(0f, 0f, _fAngle * -_fX);
 		_goGaugeH.transform.localPosition = new Vector3(245f * _fX, 20f, 0f);
 		_goGaugeV.transform.localPosition = new Vector3(245f * _fY, 20f, 0f);
 	}

@@ -28,7 +28,7 @@ public class ControlSpeedGauge : MonoBehaviour
 
 
 
-		if ( (_Sign != bSign) && (!_bIsAllOff) )
+		if ( ((_Sign != bSign) && (!_bIsAllOff)) || (p_Speed == 0))
 		{
 			_bIsAllOff = true;
 			foreach(UISprite spr in _sprGauge)
