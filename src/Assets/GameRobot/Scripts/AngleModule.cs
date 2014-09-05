@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace UnityRobot
 {
-	[AddComponentMenu("UnityRobot/MotorModule")]
-	public class MotorModule : ModuleProxy
+	public class AngleModule : ModuleProxy
 	{
-		private short _speed;
+		protected short _value;
 		
 		void Awake()
 		{
+			Reset();
 		}
 		
 		// Use this for initialization
@@ -21,12 +22,12 @@ namespace UnityRobot
 		// Update is called once per frame
 		void Update ()
 		{
+			
 		}
 		
 		public override void Reset ()
 		{
-			_speed = 0;
-			canUpdate = true;
+			_value = 0;
 		}
 		
 		public override void Action ()
@@ -35,27 +36,18 @@ namespace UnityRobot
 		
 		public override void OnPop ()
 		{
+			Pop(ref _value);
 		}
 		
 		public override void OnPush ()
 		{
-			Push (_speed);
 		}
 		
-		public int speed
+		public float Angle
 		{
 			get
 			{
-				return (int)_speed;
-			}
-			set
-			{
-				short newValue = (short)Mathf.Clamp(value, -100, 100);
-				if(_speed != newValue)
-				{
-					_speed = newValue;
-					canUpdate = true;
-				}
+				return (float)_value / 10f;
 			}
 		}
 	}

@@ -98,6 +98,7 @@ namespace UnityRobot
 		DS8 = 4978
 	}
 
+	[AddComponentMenu("UnityRobot/ToneModule")]
 	public class ToneModule : ModuleProxy
 	{
 		public EventHandler OnNoteChanged;

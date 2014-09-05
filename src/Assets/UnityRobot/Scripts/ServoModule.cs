@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/ServoModule")]
 	public class ServoModule : ModuleProxy
 	{
 		public float defaultAngle;

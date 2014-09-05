@@ -5,8 +5,12 @@ using System.Collections.Generic;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/ModuleProxy")]
 	public class ModuleProxy : MonoBehaviour
 	{
+		[HideInInspector]
+		public RobotProxy owner;
+
 		public int id;
 
 		private List<byte> _dataBytes = new List<byte>();

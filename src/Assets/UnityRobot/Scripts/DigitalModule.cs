@@ -4,6 +4,7 @@ using System;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/DigitalModule")]
 	public class DigitalModule : ModuleProxy
 	{
 		public enum Mode

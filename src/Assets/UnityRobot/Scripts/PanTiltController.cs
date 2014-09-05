@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/PanTiltController")]
 	public class PanTiltController : ModuleProxy
 	{
 		private short _panAngle;

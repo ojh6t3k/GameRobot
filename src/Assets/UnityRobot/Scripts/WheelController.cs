@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/WheelController")]
 	public class WheelController : ModuleProxy
 	{
 		private short _leftSpeed;

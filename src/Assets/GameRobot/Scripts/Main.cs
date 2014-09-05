@@ -9,6 +9,17 @@ using UnityRobot;
 public class Main : MonoBehaviour 
 {
 	public RobotProxy _RobotProxy;
+	public PanTiltController _panTilt;
+	public WheelController _wheel4WD;
+	public DRCwifi _wifiCamera;
+	public UITexture _camImage;
+	public DistanceSensor _distForward;
+	public DistanceSensor _distRight;
+	public DistanceSensor _distLeft;
+	public DistanceSensor _distBackward;
+	public AngleModule _radarAngle;
+	public IMUModule _imuAngle;
+
 	public UIPopupList _UIPortList;
 
 	public AutoTrace _StickL;
@@ -17,6 +28,8 @@ public class Main : MonoBehaviour
 	public ModuleCenter _moduleCenter;
 	public ModuleCamRotation _moduleCamRotation;
 	public ModuleSpeed _moduleSpeed;
+	public ModuleRadar _moduleRadar;
+	public ModuleGradient _moduleGradient;
 	
 	bool IsConnect_Robot = false;
 
@@ -97,6 +110,25 @@ public class Main : MonoBehaviour
 
 		_moduleSpeed._fX = _StickL.X;
 		_moduleSpeed._fY = _StickL.Y;
+
+		if(_RobotProxy.Connected == true)
+		{
+			_wheel4WD.ControlRect(new Vector2(_StickL.X, _StickL.Y));
+			_panTilt.ControlPoint(1f, new Vector2(_StickR.X, _StickR.Y));
+
+			Texture2D image = _wifiCamera.image;
+			if(image != null)
+				_camImage.mainTexture = image;
+
+			_moduleGradient._fAngX = _imuAngle.Angle.y;
+			_moduleGradient._fAngZ = _imuAngle.Angle.x;
+
+			_moduleRadar._fRadar1 = _distRight.Distance / 800f;
+			_moduleRadar._fRadar2 = _distLeft.Distance / 800f;
+			_moduleRadar._fRadar3 = _distBackward.Distance / 800f;
+			_moduleRadar._fRadar4 = _distForward.Distance / 800f;
+			_moduleRadar._fAngle = _radarAngle.Angle;
+		}
 	}
 
 

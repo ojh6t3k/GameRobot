@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/PWMModule")]
 	public class PWMModule : ModuleProxy
 	{
 		private byte _value;

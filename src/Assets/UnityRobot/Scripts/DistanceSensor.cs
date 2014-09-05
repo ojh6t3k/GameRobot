@@ -12,6 +12,7 @@ namespace UnityRobot
 		public float distance;
 	}
 
+	[AddComponentMenu("UnityRobot/DistanceSensor")]
 	public class DistanceSensor : ADCModule
 	{
 		public DistanceSmaple[] distanceSamples;

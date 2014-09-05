@@ -202,7 +202,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400024}
-  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: go_RadarSet
   m_TagString: Untagged
@@ -701,19 +700,6 @@ MonoBehaviour:
   mDepth: 4
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f8186aa539666240947a28b4bc6f819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Axis: 2
-  _Speed: 100
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -975,11 +961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90fc51ddf60c4084ca795ec8b41be23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fRadar1: 0
-  _fRadar2: 0
-  _fRadar3: 0
-  _fRadar4: 0
+  _fRadar1: 1
+  _fRadar2: 1
+  _fRadar3: 1
+  _fRadar4: 1
   _fAngle: 0
+  _goAngleSet: {fileID: 100024}
   _goRadarTrail1: {fileID: 100020}
   _goRadarTrail2: {fileID: 100012}
   _goRadarTrail3: {fileID: 100010}

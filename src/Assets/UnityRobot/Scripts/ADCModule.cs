@@ -4,6 +4,7 @@ using System;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/ADCModule")]
 	public class ADCModule : ModuleProxy
 	{
 		public int threshold = 0;

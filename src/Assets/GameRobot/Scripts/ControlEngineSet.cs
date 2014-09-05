@@ -16,13 +16,13 @@ public class ControlEngineSet : MonoBehaviour
 	// Update ------------------------------------------
 	void Update () 
 	{
-		_fEnginePowL = (_fY + -_fX);
+		_fEnginePowL = (_fY + _fX);
 		if (_fEnginePowL > 1f)
 			_fEnginePowL = 1f;
 		else if (_fEnginePowL < -1f)
 			_fEnginePowL = -1f;
 
-		_fEnginePowR = (_fY + _fX);
+		_fEnginePowR = (_fY + -_fX);
 		if (_fEnginePowR > 1f)
 			_fEnginePowR = 1f;
 		else if (_fEnginePowR < -1f)

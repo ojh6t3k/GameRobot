@@ -8,6 +8,7 @@ using System.IO.Ports;
 
 namespace UnityRobot
 {
+	[AddComponentMenu("UnityRobot/RobotProxy")]
 	public class RobotProxy : MonoBehaviour
 	{
 		[HideInInspector]
@@ -32,7 +33,7 @@ namespace UnityRobot
 			Ping = 0x85 //133
 		}
 
-		public float timeoutSec = 1f;
+		public float timeoutSec = 5f;
 		public ModuleProxy[] modules = new ModuleProxy[0];
 
 		public EventHandler OnConnected;
@@ -84,6 +85,8 @@ namespace UnityRobot
 		// Use this for initialization
 		void Start ()
 		{
+			foreach(ModuleProxy module in modules)
+				module.owner = this;
 		}
 		
 		// Update is called once per frame
