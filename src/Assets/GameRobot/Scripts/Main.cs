@@ -37,6 +37,8 @@ public class Main : MonoBehaviour
 	public GameObject _goConnectingDeco;
 
 	public GameObject _goUI_ConnectPnl;
+	public GameObject _goUI_DisconnectPnl;
+	public GameObject _goBtnExitPnl;
 
 	public GameObject _goUI_Center;
 	public GameObject _goUI_CamRotation;
@@ -56,7 +58,7 @@ public class Main : MonoBehaviour
 		_RobotProxy.PortSearch();
 
 		ShowConnectUI(true);
-		_goConnectingDeco.SetActive(false);
+		_goConnectingDeco.SetActive(false);		// NGUI
 	}
 
 
@@ -73,11 +75,21 @@ public class Main : MonoBehaviour
 	{
 		_RobotProxy.portName = _UIPortList.value;
 		_RobotProxy.Connect();
-		//_UILblRobotMessage.text = "연결 시도중..."; // NGUI
-
 		_goConnectingDeco.SetActive(true);
 		_goBtnConnect.SetActive(false);	// NGUI
 	}
+
+
+
+	public void Disconnect_Port()
+	{
+		_RobotProxy.Disconnect();
+		IsConnect_Robot = false;
+		_goBtnConnect.SetActive(true);		// NGUI
+		ShowConnectUI(true);
+		Invoke("Search_Ports", 0.2f);
+	}
+
 
 
 
@@ -85,6 +97,8 @@ public class Main : MonoBehaviour
 	void ShowConnectUI(bool p_Show)
 	{
 		_goUI_ConnectPnl.SetActive(p_Show);
+		_goUI_DisconnectPnl.SetActive(!p_Show);
+		_goBtnExitPnl.SetActive(p_Show);
 
 		_goUI_Center.SetActive(!p_Show);
 		_goUI_CamRotation.SetActive(!p_Show);
@@ -94,6 +108,11 @@ public class Main : MonoBehaviour
 	}
 
 
+
+	public void AppExit()
+	{
+		Application.Quit();
+	}
 
 
 
@@ -149,31 +168,22 @@ public class Main : MonoBehaviour
 	void OnConnected(object sender, EventArgs e)
 	{
 		IsConnect_Robot = true;
-		Debug.Log("연결됨");
-//		_UILblRobotMessage.text = "연결됨"; // NGUI
-//		CheckStartButton(); // NGUI
+		_goConnectingDeco.SetActive(false);		// NGUI
 		ShowConnectUI(false);
 	}
 	
 	void OnConnectionFailed(object sender, EventArgs e)
 	{
 		IsConnect_Robot = false;
-		Debug.Log("연결 실패");
-//		_UILblRobotMessage.text = "연결 실패"; // NGUI
-		_goConnectingDeco.SetActive(false);
+		_goConnectingDeco.SetActive(false);		// NGUI
 		_goBtnConnect.SetActive(true);		// NGUI
-//		CheckStartButton(); // NGUI
 	}
 	
 	void OnDisconnected(object sender, EventArgs e)
 	{
 		IsConnect_Robot = false;
-		Debug.Log("연결 끊어짐");
-//		_UILblRobotMessage.text = "연결 끊어짐"; // NGUI
 		_goBtnConnect.SetActive(true);		// NGUI
-
 		ShowConnectUI(true);
-
 		Invoke("Search_Ports", 0.2f);
 	}
 	
