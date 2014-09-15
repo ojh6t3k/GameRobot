@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0036)http://www.hexamite.com/hx19posb.htm -->
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+ 
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252"> 
+<META http-equiv="Content-Language" content="en-us"> 
+<META name="description" content="IMU drift correction and initialization using ultrasound and the hx19 system"> 
+<META name="GENERATOR" content="MSHTML 11.00.9600.17126"> 
+<META name="keywords" content="imu drift correction, ultrasonic yaw correction, imu initial condition"> 
+<META name="ProgId" content="FrontPage.Editor.Document"> <TITLE>hx19 Ultrasonic 
+IMU drift correction, initialization and xyz computation</TITLE> </HEAD> 
+<BODY class="atest">
+<TABLE width="640" border="1" cellspacing="0" cellpadding="0">
+  <TBODY>
+  <TR>
+    <TD width="25%"><A href="http://www.hexamite.com/index.html" 
+      target="_top"><SPAN style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;"><FONT 
+      size="2"><B>HOME</B></FONT></SPAN></A></TD>
+    <TD width="50%">
+      <P align="center"><A href="http://www.hexamite.com/products.htm" target="_top"><FONT 
+      size="2"><B>PRODUCTS</B></FONT></A><FONT size="2"><B>&nbsp;      
+      </B></FONT></P></TD>
+    <TD width="25%">
+      <P align="right"><A href="http://www.hexamite.com/hx19.htm" 
+      target="_top"><FONT size="2"><B>Navigation 
+  FRAME</B></FONT></A></P></TD></TR></TBODY></TABLE>
+<TABLE width="640" border="0" cellspacing="3" cellpadding="3">
+  <TBODY>
+  <TR>
+    <TD>The hexamite ultrasonic xyzlab setup can be useful to      cancel IMU 
+      yaw drift. It can also be used to find the initial condition      and 
+      provide absolute coordinates for IMU extrapolation and interpolation.      
+      Hx19lab is very precise, and smoothly stable for slow moving objects. IMU 
+      can be used to achieve reality sensation by increasing the      sampling 
+      to over 43 s/s. The xyzLab setup below can be placed by      every wall to 
+      create a surround positioning. Although hexamite 3d      ultrasonic 
+      positioning requires only 3 receivers and 1 tag, for      computational 
+      simplicity the xyzLab      standard is to use 4 units, spaced at equal 
+      distances for 3d Cartesian      coordinate 
+results.&nbsp;</TD></TR></TBODY></TABLE>
+<TABLE width="640" border="0" cellspacing="3" cellpadding="3">
+  <TBODY>
+  <TR>
+    <TD width="284">
+      <P align="center"><B>Simplifying Spatial Configuration&nbsp;</B></P></TD>
+    <TD width="352" rowspan="2">
+      <P><B>Receiver 0 at (0,0,0) and Receiver 1 at (X<SUB>1</SUB>,0,0) and      
+        Receiver 2 at (0,Y<SUB>2</SUB>,0)&nbsp;</B></P>
+      <P>Given the above configuration, the following is true:</P>
+      <BLOCKQUOTE>
+        <P><B>X =&nbsp; (R<SUB>0</SUB><SUP>2 </SUP>- R<SUB>1</SUB><SUP>2 </SUP>+ 
+               X<SUB>1</SUB><SUP>2</SUP>) / (2*X<SUB>1</SUB>)</B></P>
+        <P>&nbsp;&nbsp; similarly</P>
+        <P><B>Y =&nbsp; (R<SUB>0</SUB><SUP>2 </SUP>- 
+        R<SUB>2</SUB><SUP>2&nbsp;</SUP>        + Y<SUB>2</SUB><SUP>2</SUP>) / 
+        (2*Y<SUB>2</SUB>)</B></P>
+        <P>&nbsp;&nbsp; and</P>
+        <P><B>Z<SUP>2 </SUP>=&nbsp; R<SUB>0</SUB><SUP>2 </SUP>- X<SUP>2 </SUP>-  
+              Y<SUP>2</SUP></B></P></BLOCKQUOTE>
+      <P align="left"><I>Hx19 receiver 0 measures and returns R<SUB>0</SUB> as 
+      mm,      and similarly receiver 1 returns its distance R<SUB>1</SUB> to 
+      the tag. In      a clockwise enumeration receiver 3 returns 
+      R<SUB>2</SUB>.&nbsp;</I></P></TD></TR>
+  <TR>
+    <TD width="284"><IMG width="279" height="347" src="hx19%20Ultrasonic%20IMU%20drift%20correction,%20initialization%20and%20xyz%20computation_files/hx19lab2.jpg" 
+      border="0"></TD></TR>
+  <TR>
+    <TD width="636" colspan="2"><I>Receiver 2 is therefore redundant, and can 
+      be used to compute another      set of X,Y,Z for averaging 
+  purposes.</I></TD></TR></TBODY></TABLE>
+<TABLE width="640" border="0" cellspacing="3" cellpadding="3">
+  <TBODY>
+  <TR>
+    <TD width="636" colspan="2">
+      <P><B>Example:</B></P>
+      <P>Let the receivers on the cross be 1m apart in the x and y direction see 
+           illustration below. The green Z line is orthogonal on the yellow      
+      plane. The blue square represents the tag moving away and towards the      
+      yellow plane. Blue lines are the distances from tag to receivers (shown    
+        as blue circles at specific coordinate points).&nbsp;Blue line lengths 
+      is      embedded in the serial string streaming from the receivers. Red 
+      lines are      points on the yellow plane.</P></TD></TR>
+  <TR>
+    <TD width="290"><IMG width="281" height="281" src="hx19%20Ultrasonic%20IMU%20drift%20correction,%20initialization%20and%20xyz%20computation_files/xyzlab5.jpg" 
+      border="0"></TD>
+    <TD width="346">
+      <BLOCKQUOTE>
+        <P><B>Let X<SUB>1</SUB>=1m and Y<SUB>2</SUB>=1m, then:</B></P>
+        <P><B>Receiver 0 at (0,0,0) and Receiver 1 at (1,0,0) and Receiver 2 at  
+              (0,1,0) then</B></P>
+        <P><B>X =&nbsp; (R<SUB>0</SUB><SUP>2 </SUP>- 
+        R<SUB>1</SUB><SUP>2&nbsp;</SUP>        + 1) / 2</B></P>
+        <P><B>Y =&nbsp; (R<SUB>0</SUB><SUP>2 </SUP>- 
+        R<SUB>2</SUB><SUP>2&nbsp;</SUP>        + 1) / 2</B></P></BLOCKQUOTE>
+      <P>&nbsp;</P></TD></TR>
+  <TR>
+    <TD width="636" colspan="2">The above spatial arrangement makes 
+      positioning      math efficient, simple and within grasp of those who 
+      don't have time for      math elaboration. And it reduces processor load 
+      significantly, i.e. sets      this operation within realm of most 
+      Microcontrollers.       
+      <P><I>Hx19 measurement is in millimeters. The distances between receivers 
+      on the hx19xyzLab cross is always 1000mm,      so the axes should be in 
+      terms of mm instead of m.</I>
+      <P><I>HEXAMITE WILL      EMBED ULTRASONIC CORRECTION INTO YOUR IMU UPON 
+      REQUEST</I></P></TD></TR></TBODY></TABLE>
+<DIV align="left">
+<TABLE width="640" border="1" cellspacing="1">
+  <TBODY>
+  <TR>
+    <TD width="45"><B>&gt;&gt;</B></TD>
+    <TD width="522">
+      <P align="center"><B><FONT size="2">Copyright © 1999 [Hexamite]. All       
+       rights reserved. Revised: 		 <!--webbot bot="TimeStamp" S-Type="EDITED"
+        S-Format="%B %d, %Y" startspan -->February 
+      22, 2014<!--webbot bot="TimeStamp" endspan i-checksum="41528" -->        
+      .</FONT></B></P></TD>
+    <TD width="51">
+      <P 
+align="right"><B>&lt;&lt;</B></P></TD></TR></TBODY></TABLE></DIV></BODY></HTML>

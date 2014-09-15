@@ -34,7 +34,11 @@ public class RobotProxyInspector : Editor
 			robot.PortSearch();
 		EditorGUILayout.EndHorizontal();
 
+#if UNITY_ANDROID
+
+#else
 		robot.baudrate = EditorGUILayout.IntField("Baudrate", robot.baudrate);
+#endif
 		robot.timeoutSec = EditorGUILayout.FloatField("Timeout(sec)", robot.timeoutSec);
 
 		if(Application.isPlaying == true)
