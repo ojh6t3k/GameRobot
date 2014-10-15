@@ -368,7 +368,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4.28571415
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: R41
   mFontSize: 70
@@ -458,7 +458,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T21
 
@@ -585,7 +585,7 @@ GameObject:
   - 33: {fileID: 238108867}
   - 23: {fileID: 238108866}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +603,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53f38d22ba328ac439bc496d2282f2e9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -626,9 +626,80 @@ Transform:
   m_GameObject: {fileID: 238108865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_LocalScale: {x: .5, y: .100000001, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 284215532}
+  m_RootOrder: 0
+--- !u!1 &284215528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 284215532}
+  - 33: {fileID: 284215531}
+  - 64: {fileID: 284215530}
+  - 23: {fileID: 284215529}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &284215529
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284215528}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 3ef227c5bd29622478741e4b7a27c49c, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &284215530
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284215528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &284215531
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284215528}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &284215532
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284215528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 238108868}
+  m_Father: {fileID: 1589244978}
   m_RootOrder: 2
 --- !u!1 &318520929
 GameObject:
@@ -720,6 +791,90 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &342226697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 342226698}
+  - 20: {fileID: 342226702}
+  - 124: {fileID: 342226701}
+  - 92: {fileID: 342226700}
+  - 81: {fileID: 342226699}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &342226698
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342226697}
+  m_LocalRotation: {x: .0820170119, y: 0, z: 0, w: .996630967}
+  m_LocalPosition: {x: 0, y: 4.46660709, z: -10.6104679}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1589244978}
+  m_RootOrder: 0
+--- !u!81 &342226699
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342226697}
+  m_Enabled: 1
+--- !u!92 &342226700
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342226697}
+  m_Enabled: 1
+--- !u!124 &342226701
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342226697}
+  m_Enabled: 1
+--- !u!20 &342226702
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342226697}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: .300000012
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!1 &364543538
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +941,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4.28571415
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: R42
   mFontSize: 70
@@ -1569,7 +1724,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3006
+  startingRenderQueue: 3005
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -2005,7 +2160,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T21
 
@@ -3137,7 +3292,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3009
+  startingRenderQueue: 3007
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -3471,6 +3626,69 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: ca98c91e6510c04459caa4a9ae13900f, type: 2}
   mSpriteName: Img_White
   mFillCenter: 1
+--- !u!1 &1536886317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1536886318}
+  - 108: {fileID: 1536886319}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536886318
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536886317}
+  m_LocalRotation: {x: .378107697, y: .404856771, z: -.188787714, w: .810854435}
+  m_LocalPosition: {x: -4.88344193, y: -.691851139, z: 2.44120026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1589244978}
+  m_RootOrder: 1
+--- !u!108 &1536886319
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536886317}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &1549840028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,7 +3719,7 @@ Transform:
   m_Children:
   - {fileID: 1868946317}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!54 &1549840030
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3605,11 +3823,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589244977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 21.0658073, y: -.148480892, z: 12.970089}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 342226698}
+  - {fileID: 1536886318}
+  - {fileID: 284215532}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1589244979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3623,9 +3844,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portNames: []
   portName: 
-  nR_Number: 0
-  nT_Number: 0
-  nDistance: 0
+  planeSize: {x: 1000, y: 1000}
+  id_HexR_X0Y0: 40
+  id_HexR_X1Y0: 41
+  id_HexR_X0Y1: 42
+  id_HexR_X1Y1: 43
+  hexT_list:
+  - id: 20
+    distance_X0Y0: 0
+    distance_X1Y0: 0
+    distance_X0Y1: 0
+    distance_X1Y1: 0
+    planeSize: {x: 0, y: 0}
+    position: {x: 0, y: 0, z: 0}
+  - id: 21
+    distance_X0Y0: 0
+    distance_X1Y0: 0
+    distance_X0Y1: 0
+    distance_X1Y1: 0
+    planeSize: {x: 0, y: 0}
+    position: {x: 0, y: 0, z: 0}
 --- !u!114 &1589244980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3638,6 +3876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Hexamite: {fileID: 1589244979}
+  target: {fileID: 238108865}
+  plane: {fileID: 284215528}
   _UIPortList: {fileID: 1436715805}
   _goBtnConnect: {fileID: 500892753}
   _goConnectingDeco: {fileID: 1516665870}
@@ -3751,7 +3991,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3012
+  startingRenderQueue: 3010
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -3985,7 +4225,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T20
 
@@ -4417,7 +4657,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T20
 
@@ -5163,7 +5403,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T21
 
@@ -5255,7 +5495,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T20
 
@@ -5347,7 +5587,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4.28571415
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: R43
   mFontSize: 70
@@ -5606,7 +5846,7 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 2.14285707
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 0}
   mFont: {fileID: 0}
   mText: 'T21
 

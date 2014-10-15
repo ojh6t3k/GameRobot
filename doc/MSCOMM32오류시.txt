@@ -1,4 +1,5 @@
-1. ocx 파일을 windows\sysWOW64 에 복사
+1. ocx 파일을 windows\system32 에 복사 (32bit)
+              windows\SysWow64 에 복사 (64bit)
 2. regsvr32 windows\sysWOW64\ocx파일명
 
 regsvr32  C:\Windows\SysWOW64\MSCOMM32.ocx

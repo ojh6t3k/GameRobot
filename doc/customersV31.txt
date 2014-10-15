@@ -1,0 +1,22 @@
+Please download the utility software and documentation at
+
+www.hexamite.com/zips/hx19 v3.1 support.zip
+
+The utility is written in visual basic, and it is compiled for an old version of VB6 when installing on your updated versions of the operating systems, ignore warnings about old driver versions and select to keep the updated driver on your system.
+
+The visual basic 6 runtime library can also be installed goto: 
+
+http://www.microsoft.com/en-us/download/details.aspx?id=24417
+
+Run vbrun60sp6.exe for installation, if all goes well then, just run the hx19 executable files directly. If there is an error it may be worth going through the hx19 installation found in the "utility software" folder 
+
+If you are running more than 5 receivers at the same RF frequency channel, please make sure you read about the q switch in the hx19 manual. 
+
+In case of trouble with ftdi drivers goto
+ 
+http://www.ftdichip.com/Drivers/VCP.htm
+
+and download the drivers for your operating system.
+
+
+Hexamite Ltd.

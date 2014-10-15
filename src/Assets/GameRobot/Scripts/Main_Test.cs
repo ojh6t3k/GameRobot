@@ -9,6 +9,8 @@ using UnityRobot;
 public class Main_Test : MonoBehaviour 
 {
 	public Hexamite _Hexamite;
+	public GameObject target;
+	public GameObject plane;
 
 
 	public UIPopupList _UIPortList;
@@ -68,9 +70,13 @@ public class Main_Test : MonoBehaviour
 
 
 
+	private Quaternion _qCurrent;
+	private Quaternion _qGoal;
+	private float _qT = 1f;
 
-
-
+	private Vector3 _vCurrent;
+	private Vector3 _vGoal;
+	private float _vT = 1f;
 
 
 	// Start ------------------------------------------------------------------------------
@@ -84,6 +90,12 @@ public class Main_Test : MonoBehaviour
 		
 		ShowConnectUI(true);
 		_goConnectingDeco.SetActive(false);		// NGUI
+
+		if(target != null)
+		{
+			_qGoal = target.transform.localRotation;
+			_vGoal = target.transform.localPosition;
+		}
 	}
 	
 	
@@ -177,12 +189,62 @@ public class Main_Test : MonoBehaviour
 	// Update -------------------------------------
 	void Update () 
 	{
-		float x0 = ((_fR0 * _fR0) - (_fR1 * _fR1) + 1000f) / 2000f;
-		float z0 = ((_fR0 * _fR0) - (_fR2 * _fR2) + 1000f) / 2000f;
+		if(target != null)
+		{
+			Vector3 pos1 = ConvertPosition(_Hexamite.hexT_list[0].position);
+			Vector3 pos2 = ConvertPosition(_Hexamite.hexT_list[1].position);
+			Vector3 diff = pos1 - pos2;
+			Vector3 center = (pos1 + pos2) * 0.5f;
 
-		_goTestBox.transform.position = new Vector3( x0, 0f, -z0);
+			if(diff != Vector3.zero)
+			{
+				Quaternion q = Quaternion.LookRotation(diff);
+				if(q != _qGoal)
+				{
+					_qT = 0f;
+					_qCurrent = target.transform.localRotation;
+					_qGoal = q;
+				}
+			}
+
+			if(center != _vGoal)
+			{
+				_vT = 0f;
+				_vCurrent = target.transform.localPosition;
+				_vGoal = center;
+			}
+
+			if(_qT < 1f)
+			{
+				target.transform.localRotation = Quaternion.Lerp(_qCurrent, _qGoal, _qT);
+				_qT += (Time.deltaTime * 4f);
+			}
+			else
+				target.transform.localRotation = _qGoal;
+
+			if(_vT < 1f)
+			{
+				target.transform.localPosition = Vector3.Lerp(_vCurrent, _vGoal, _vT);
+				_vT += (Time.deltaTime * 4f);
+			}
+			else
+				target.transform.localPosition = _vGoal;
+		}
 	}
 
+	Vector3 ConvertPosition(Vector3 pos)
+	{
+		float temp = pos.z;
+		pos.z = pos.y;
+		pos.y = temp;
+		Vector3 scale = plane.transform.localScale * 10f;
+		pos.x *= (scale.x / _Hexamite.planeSize.x);
+		pos.y *= (scale.x / _Hexamite.planeSize.x);
+		pos.z *= (scale.z / _Hexamite.planeSize.y);
+		pos -= new Vector3(scale.x * 0.5f, 0f, scale.z * 0.5f);
+
+		return pos;
+	}
 
 
 
@@ -198,6 +260,7 @@ public class Main_Test : MonoBehaviour
 
 	void OnGetData(object sender, EventArgs e)
 	{
+		/*
 		switch(_Hexamite.nR_Number)
 		{
 		case 40:
@@ -259,6 +322,7 @@ public class Main_Test : MonoBehaviour
 			break;
 
 		}
+		*/
 	}
 
 
